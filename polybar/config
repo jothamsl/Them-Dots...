@@ -1,0 +1,420 @@
+;                    ████             █████
+;                   ▒▒███            ▒▒███
+; ████████   ██████  ▒███  █████ ████ ▒███████   ██████   ████████
+;▒▒███▒▒███ ███▒▒███ ▒███ ▒▒███ ▒███  ▒███▒▒███ ▒▒▒▒▒███ ▒▒███▒▒███
+; ▒███ ▒███▒███ ▒███ ▒███  ▒███ ▒███  ▒███ ▒███  ███████  ▒███ ▒▒▒
+; ▒███ ▒███▒███ ▒███ ▒███  ▒███ ▒███  ▒███ ▒███ ███▒▒███  ▒███
+; ▒███████ ▒▒██████  █████ ▒▒███████  ████████ ▒▒████████ █████
+; ▒███▒▒▒   ▒▒▒▒▒▒  ▒▒▒▒▒   ▒▒▒▒▒███ ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒ ▒▒▒▒▒
+; ▒███                      ███ ▒███
+; █████                    ▒▒██████
+;▒▒▒▒▒
+
+#-------------------------------------------------------------------------
+# 
+#   ▄████▄   ▒█████   ██▓     ▒█████   ██▀███    ██████ 
+#  ▒██▀ ▀█  ▒██▒  ██▒▓██▒    ▒██▒  ██▒▓██ ▒ ██▒▒██    ▒ 
+#  ▒▓█    ▄ ▒██░  ██▒▒██░    ▒██░  ██▒▓██ ░▄█ ▒░ ▓██▄   
+#  ▒▓▓▄ ▄██▒▒██   ██░▒██░    ▒██   ██░▒██▀▀█▄    ▒   ██▒
+#  ▒ ▓███▀ ░░ ████▓▒░░██████▒░ ████▓▒░░██▓ ▒██▒▒██████▒▒
+#  ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░▒ ▒▓▒ ▒ ░
+#    ░  ▒     ░ ▒ ▒░ ░ ░ ▒  ░  ░ ▒ ▒░   ░▒ ░ ▒░░ ░▒  ░ ░
+#  ░        ░ ░ ░ ▒    ░ ░   ░ ░ ░ ▒    ░░   ░ ░  ░  ░  
+#  ░ ░          ░ ░      ░  ░    ░ ░     ░           ░  
+#  ░
+#-------------------------------------------------------------------------
+[colors]
+color1 = "${xrdb:color1}"
+color2 = "${xrdb:color2}"
+color3 = "${xrdb:color3}"
+color4 = "${xrdb:color4}"
+color5 = "${xrdb:color5}"
+color6 = "${xrdb:color6}"
+color7 = "${xrdb:color7}"
+color8 = "${xrdb:color8}"
+color9 = "${xrdb:color9}"
+color10 = "${xrdb:color10}"
+background = ${env:background}
+foreground = ${env:foreground}
+bg = #cc282a36
+fg = #D9DBDF
+fg-alt = #141C21
+alpha = #cc282a36
+shade1 = #70ffa2
+shade2 = #70cfff
+shade3 = #ffe396
+shade4 = #ff9696
+shade5 = #96fff6
+shade6 = #96ffcc
+
+#------------------------
+# Mainbar
+#------------------------
+[bar/main]
+monitor = ${env:monitor2}
+monitor-fallback = ${env:monitor1}
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+background = ${colors.alpha}
+foreground = ${colors.fg}
+radius-top = 0
+radius-bottom = 0
+line-size = 2
+line-color = ${colors.shade5}
+border-top-size = 0
+border-color = ${colors.shade5}
+padding-left = 1
+module-margin-left = 0
+module-margin-right = 0
+
+#------------------------
+# Fonts
+#------------------------
+font-0 = "JetBrains Mono:Bold:size=11;2"
+font-1 = "Font Awesome:size=10;2"
+
+ 
+modules-left = ewmh workspaces title
+modules-center = kernel
+modules-right = colorss sep memory cpu alsa network battery date
+
+separator =
+dim-value = 1.0
+wm-name = bspwm
+locale =
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
+tray-background = ${colors.color4}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 6
+tray-scale = 1.0
+wm-restack = bspwm
+enable-ipc = true
+
+click-left =
+click-middle =
+click-right =
+scroll-up =bspwm desktop -f prev.local
+scroll-down =bspc desktop -f next.local
+double-click-left =
+double-click-middle =
+double-click-right =
+cursor-click =
+cursor-scroll =
+
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = false
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+format-foreground = 
+format-background = 
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+pseudo-transparency = false
+
+
+#---------------------------
+# Modules
+#---------------------------
+[module/alsa]
+type = internal/alsa
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.shade3}
+format-volume-foreground = ${colors.fg-alt}
+format-volume-padding = 2
+format-volume-underline = d4bd7d
+
+label-volume = %percentage%%
+
+format-muted-prefix = " "
+format-muted-background = ${colors.shade3}
+#${color.shade6}
+format-muted-foreground = ${colors.fg-alt}
+format-muted-padding = 2
+label-muted = "Muted"
+format-muted-underline = d4bd7d
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+battery = BAT1
+adapter = AC
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-charging-background = ${colors.shade3}
+format-charging-foreground = ${colors.fg-alt}
+format-charging-padding = 2
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${colors.shade3}
+format-discharging-foreground = ${colors.fg-alt}
+format-discharging-padding = 2
+
+format-full = <label-full>
+format-full-background = ${colors.shade3}
+format-full-foreground = ${colors.fg-alt}
+format-full-padding = 2
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = 100% Charged
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+format = <label>
+format-prefix = 
+format-background = ${colors.shade4}
+format-foreground = ${colors.fg-alt}
+format-underline = c46868
+format-padding = 2
+label = " %percentage%%"
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+
+time =  %I:%M %p
+time-alt =  %Y-%m-%d%
+
+format = <label>
+format-background = ${colors.shade1}
+format-foreground = ${colors.bg}
+format-padding = 2
+format-underline = 56c77d
+label = %time%
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+format = <label>
+format-prefix = 
+format-background = ${colors.shade6}
+format-foreground = ${colors.fg-alt}
+format-padding = 1
+label = " %mb_used%"
+format-underline = 73c99f
+
+[module/mpd]
+type = internal/mpd
+
+interval = 2
+
+format-online = <label-song>
+format-online-background = ${colors.bg}
+format-online-foreground = ${colors.fg}
+format-online-padding = 2
+
+label-song =  "%artist% - %title%"
+label-song-maxlen = 30
+label-song-ellipsis = true
+
+label-offline = "MPD is offline"
+
+[module/mpd_i]
+type = internal/mpd
+interval = 2
+format-online = <icon-prev> <toggle> <icon-next>
+format-online-background = ${colors.shade5}
+format-online-foreground = ${colors.fg-alt}
+format-online-padding = 2
+label-offline = "MPD is offline"
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+
+[module/network]
+type = internal/network
+interface = wlo1
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+format-connected = <ramp-signal> <label-connected> 
+format-connected-background = ${colors.shade2}
+format-connected-foreground = ${colors.fg-alt}
+format-connected-padding = 2
+format-connected-underline = 5ba4c6
+format-click-left = $HOME/.config/polybar/scripts/nmcli-rofi
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.shade2}
+format-disconnected-foreground = ${colors.fg-alt}
+format-disconnected-padding = 2
+format-disconnected-underline = 5ba4c6
+label-connected = %essid%
+label-disconnected =  Disconnected
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+[module/workspaces]
+type = internal/xworkspaces
+
+pin-workspaces = true
+
+enable-click = true
+enable-scroll = true
+
+format = <label-state>
+format-padding = 0
+
+label-monitor = %name%
+
+label-active = %name%
+label-active-foreground = ${colors.fg-alt}
+label-active-background = ${colors.shade6}
+label-active-underline = ${colors.shade1}
+
+label-occupied = %icon%
+label-occupied-underline = ${colors.fg}
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.bg}
+label-urgent-background = ${colors.bg}
+
+label-empty = %name%
+label-empty-background = ${colors.bg}
+label-empty-foreground = ${colors.fg}
+
+label-active-padding = 2
+label-urgent-padding = 2
+label-occupied-padding = 2
+label-empty-padding = 2
+
+[module/sep]
+type = custom/text
+content = "| "
+
+content-background = ${colors.alpha}
+content-foreground = ${colors.alpha}
+content-padding = 0
+
+[module/title]
+type = internal/xwindow
+
+format = <label>
+format-background = ${colors.bg}
+format-foreground = aaffffff
+format-padding = 2
+
+label = |  %title%
+label-maxlen = 20
+
+label-empty = 
+label-empty-foreground = #aaffffff
+
+[module/bspwm]
+type = internal/bspwm
+
+format =[ <label-mode> ]  
+
+label-monocle = " [] "
+label-monocle-foreground = ${colors.fg}
+label-tiled = " # "
+label-tiled-foreground = ${colors.fg}
+label-fullscreen = " F "
+label-fullscreen-foreground = ${colors.fg}
+label-floating = " + "
+label-floating-foreground = ${colors.fg}
+label-pseudotiled = " ||| "
+label-pseudotiled-foreground = ${colors.fg}
+label-locked = " L "
+label-locked-foreground = ${colors.fg}
+label-sticky = " I "
+label-sticky-foreground = ${colors.fg}
+label-private =  " p "
+label-private-foreground = ${colors.fg}
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 10
+;label-separator-foreground = #ffb52a
+
+format-foreground = ${colors.fg}
+format-background = ${colors.bg}
+
+[module/wifi]
+type = custom/script
+interface = wlp2s0
+exec = $HOME/.config/polybar/scripts/check-network
+click-left = $HOME/.config/polybar/scripts/nmcli-rofi
+click-right = networkmanager_dmenu &
+tail = true
+label-connected = %essid%
+format-background = 2a85db
+format-foreground = ${colors.bg}
+format-padding = 1
+
+[module/dep]
+type = custom/text
+content = "| "
+
+content-background = 2a85db
+content-foreground = 2a85db
+content-padding = 0
