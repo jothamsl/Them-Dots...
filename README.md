@@ -1,5 +1,5 @@
-# Pop_os-configs
-My Pop os config files 
+# Linux_Config
+My Linux config files
 
 ## Tools:
 1. bspwm (window manager)
