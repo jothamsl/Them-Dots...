@@ -6,31 +6,31 @@
 "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═
 
 set encoding=UTF-8
-set nocompatible            " disable compatibility to old-time vi
+"set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching brackets.
 set ignorecase              " case insensitive matching
 set mouse=a                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set tabstop=4               " number of columns occupied by a tab character
+set shiftwidth=4            " width for autoindents
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
-set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set scrolloff=999           " Keep cursor at center of file
 set wrap breakindent        " Wrap long lines to the width set by tw
-set noshowcmd               " Get rid of display of last command
+"set noshowcmd               " Get rid of display of last command
 set emoji                   " Enable emoji 
 set history=1000            " History limit 
 set fillchars+=vert:\▏      " requires a patched nerd font (try JetBrains Mono Nerd)
 set inccommand=nosplit      " Visual feedback while substituting
-setlocal textwidth=79       " Set this to have long lines wrap inside comments
+setlocal textwidth=100      " Set this to have long lines wrap inside comments
 set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set incsearch ignorecase smartcase hlsearch             " Highlight text while searching
 autocmd TermOpen * setlocal nonumber norelativenumber   " No line number for terminal
-"set noshowmode                                         " Remove INSERT when editing text
+set noshowmode                                         " Remove INSERT when editing text
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
@@ -42,9 +42,6 @@ nnoremap <C-\> :Commentary    " Comment line
 tnoremap <Esc> <C-\><C-n>     " Exit terminal mode
 nmap <F5> :TagbarToggle<CR>   " Toggle Tagbar (Function defs)
 
-
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
 autocmd FileType apache setlocal commentstring=#\ %s "For Comment plug
 
 
@@ -54,12 +51,11 @@ call plug#begin("~/.config/nvim/plugged")
 " MAIN
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fzf
 Plug 'junegunn/fzf.vim' "                             Fuzzy-file search
-Plug 'godlygeek/tabular' "                            Syntax Aligner
 Plug 'gabrielelana/vim-markdown' "                    Vim-Markdown support
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
 Plug 'joeytwiddle/sexy_scroller.vim' "                Smooth scroller
 Plug 'tpope/vim-fugitive' "                           Git support
-Plug 'roxma/nvim-yarp' "                              Remote Plugin
-Plug 'davidhalter/jedi-vim' "                         Python completions
+Plug 'airblade/vim-gitgutter' "                       Git Gutter 
 
 " Syntax, Langsupport, Format
 Plug 'tmsvg/pear-tree' "                              Autoclosing brackets
@@ -70,13 +66,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "     Vscode like language compl
 Plug 'vimlab/split-term.vim' "                        Provides split terminal in Neovim
 Plug 'preservim/tagbar' "                             Shows function definitions
 Plug 'ervandew/supertab' "                            Use tab for completion fill
-Plug 'morhetz/gruvbox' "                              Gruvbox theme
+Plug 'sonph/onehalf', { 'rtp': 'vim' } "              OneHalf theme
 
 " Comments, Indents, Coloring
-Plug 'frazrepo/vim-rainbow' "                         Rainbow brackets
 Plug 'vim-airline/vim-airline' "                      Cool status-line
 Plug 'vim-airline/vim-airline-themes' "               Themes for status-line
-Plug 'Yggdroot/indentLine' "                          Indent marker
 Plug 'preservim/nerdtree' "                           File Browser
 Plug 'ryanoasis/vim-devicons' "                       Icons
 Plug 'octol/vim-cpp-enhanced-highlight' "             Enchanced c++ Highlighting
@@ -84,7 +78,7 @@ Plug 'tpope/vim-commentary' "                         Commenter
 call plug#end()
 
 " THEMES
-" -------
+" ------j-
 " gruvbox
 " ayu
 " onedark
@@ -105,9 +99,9 @@ let g:pear_tree_repeatable_expand = 0
 
 " ====================== Sexy scroller ======================
 let g:SexyScroller_ScrollTime  = 10    " Time taken for buffer to scroll one line or column
-let g:SexyScroller_CursorTime  = 5     " Time taken for cursor to travel one line
+let g:SexyScroller_CursorTime  = 3     " Time taken for cursor to travel one line
 let g:SexyScroller_MaxTime     = 500   " Maximum amount of time that longer scrolls can take
-let g:SexyScroller_EasingStyle = 2     " Choose easing time
+let g:SexyScroller_EasingStyle = 3     " Choose easing time
 
 "==================== ALE ====================
 let g:ale_disable_lsp = 1
@@ -133,8 +127,8 @@ set shortmess+=c
 set signcolumn=no
 
 "==================== Indentline ================
-let g:indentLine_char = '|'
-let g:indentLine_first_char = '|'
+"let g:indentLine_char = '|'
+"let g:indentLine_first_char = '|'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 
@@ -153,3 +147,5 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
+"======================= Super Tab ====================
+let g:SuperTabDefaultCompletionType = "<c-n>"
