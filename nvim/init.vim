@@ -6,6 +6,7 @@
 "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═
 
 set encoding=UTF-8
+syntax enable
 "set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching brackets.
 set ignorecase              " case insensitive matching
@@ -19,33 +20,35 @@ set autoindent              " indent a new line the same amount as the line just
 set number                  " add line numbers
 set scrolloff=999           " Keep cursor at center of file
 set wrap breakindent        " Wrap long lines to the width set by tw
-"set noshowcmd               " Get rid of display of last command
-set emoji                   " Enable emoji 
-set history=1000            " History limit 
+"set noshowcmd              " Get rid of display of last command
+set emoji                   " Enable emoji
+set history=1000            " History limit
 set fillchars+=vert:\▏      " requires a patched nerd font (try JetBrains Mono Nerd)
 set inccommand=nosplit      " Visual feedback while substituting
-setlocal textwidth=100      " Set this to have long lines wrap inside comments
-set wildmode=longest,list   " get bash-like tab completions
+setlocal textwidth=110      " Set this to have long lines wrap inside comments
+"set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set incsearch ignorecase smartcase hlsearch             " Highlight text while searching
 autocmd TermOpen * setlocal nonumber norelativenumber   " No line number for terminal
-set noshowmode                                         " Remove INSERT when editing text
-let g:python3_host_prog = '/usr/bin/python3'
+" let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = 'home/jotham/anaconda3/bin/python3.8'
 let g:python_host_prog = '/usr/bin/python2'
 
 "============= Keybindings =============
 nnoremap <C-j> :m .+1<CR>==   " Move Line Down
+set noshowmode                                         " Remove INSERT when editing text
 nnoremap <C-k> :m .-2<CR>==   " Move Line Up
 nnoremap <F3> :Autoformat<CR> " Formats Document
 nnoremap <C-\> :Commentary    " Comment line
 tnoremap <Esc> <C-\><C-n>     " Exit terminal mode
 nmap <F5> :TagbarToggle<CR>   " Toggle Tagbar (Function defs)
+nnoremap <F4> :UndotreeToggle<CR> " Toggle undotree
 
 autocmd FileType apache setlocal commentstring=#\ %s "For Comment plug
 
 
-" =================== PLUGINS =================== 
+" =================== PLUGINS ===================
 call plug#begin("~/.config/nvim/plugged")
 
 " MAIN
@@ -55,30 +58,32 @@ Plug 'gabrielelana/vim-markdown' "                    Vim-Markdown support
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
 Plug 'joeytwiddle/sexy_scroller.vim' "                Smooth scroller
 Plug 'tpope/vim-fugitive' "                           Git support
-Plug 'airblade/vim-gitgutter' "                       Git Gutter 
+Plug 'airblade/vim-gitgutter' "                       Git Gutter
+Plug 'mbbill/undotree' "                              Undo tree for vim
 
 " Syntax, Langsupport, Format
 Plug 'tmsvg/pear-tree' "                              Autoclosing brackets
 Plug 'Chiel92/vim-autoformat' "                       Full file format
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dense-analysis/ale' "                           Linting and error highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "     Vscode like language completions
 Plug 'vimlab/split-term.vim' "                        Provides split terminal in Neovim
 Plug 'preservim/tagbar' "                             Shows function definitions
 Plug 'ervandew/supertab' "                            Use tab for completion fill
-Plug 'sonph/onehalf', { 'rtp': 'vim' } "              OneHalf theme
+Plug 'puremourning/vimspector' "                      Debugger
 
 " Comments, Indents, Coloring
-Plug 'vim-airline/vim-airline' "                      Cool status-line
-Plug 'vim-airline/vim-airline-themes' "               Themes for status-line
+"Plug 'vim-airline/vim-airline' "                      Cool status-line
+"Plug 'vim-airline/vim-airline-themes' "               Themes for status-line
+Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree' "                           File Browser
 Plug 'ryanoasis/vim-devicons' "                       Icons
-Plug 'octol/vim-cpp-enhanced-highlight' "             Enchanced c++ Highlighting
+Plug 'octol/vim-cpp-enhanced-highlight' "             Enchanced C++ Highlighting
 Plug 'tpope/vim-commentary' "                         Commenter
+ 
 call plug#end()
 
 " THEMES
-" ------j-
+" --------
 " gruvbox
 " ayu
 " onedark
@@ -138,7 +143,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_y = ""
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
- 
+
 " do not show error/warning section
 let g:airline_section_error = ""
 let g:airline_section_warning = ""
