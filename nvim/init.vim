@@ -7,7 +7,7 @@
 
 set encoding=UTF-8
 syntax enable
-"set nocompatible            " disable compatibility to old-time vi
+set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching brackets.
 set ignorecase              " case insensitive matching
 set mouse=a                 " middle-click paste with mouse
@@ -19,14 +19,14 @@ set expandtab               " converts tabs to white space
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set scrolloff=999           " Keep cursor at center of file
-set wrap breakindent        " Wrap long lines to the width set by tw
+" set wrap breakindent        " Wrap long lines to the width set by tw
 "set noshowcmd              " Get rid of display of last command
 set emoji                   " Enable emoji
 set history=1000            " History limit
 set fillchars+=vert:\▏      " requires a patched nerd font (try JetBrains Mono Nerd)
 set inccommand=nosplit      " Visual feedback while substituting
-setlocal textwidth=110      " Set this to have long lines wrap inside comments
-"set wildmode=longest,list   " get bash-like tab completions
+" setlocal textwidth=110      " Set this to have long lines wrap inside comments
+set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set incsearch ignorecase smartcase hlsearch             " Highlight text while searching
@@ -60,6 +60,7 @@ Plug 'joeytwiddle/sexy_scroller.vim' "                Smooth scroller
 Plug 'tpope/vim-fugitive' "                           Git support
 Plug 'airblade/vim-gitgutter' "                       Git Gutter
 Plug 'mbbill/undotree' "                              Undo tree for vim
+Plug 'junegunn/goyo.vim' "                            Minimal vim
 
 " Syntax, Langsupport, Format
 Plug 'tmsvg/pear-tree' "                              Autoclosing brackets
@@ -74,12 +75,13 @@ Plug 'puremourning/vimspector' "                      Debugger
 " Comments, Indents, Coloring
 "Plug 'vim-airline/vim-airline' "                      Cool status-line
 "Plug 'vim-airline/vim-airline-themes' "               Themes for status-line
+Plug 'b4skyx/serenade' "                               Theme
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree' "                           File Browser
 Plug 'ryanoasis/vim-devicons' "                       Icons
 Plug 'octol/vim-cpp-enhanced-highlight' "             Enchanced C++ Highlighting
 Plug 'tpope/vim-commentary' "                         Commenter
- 
+
 call plug#end()
 
 " THEMES
@@ -154,3 +156,4 @@ endif
 
 "======================= Super Tab ====================
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
