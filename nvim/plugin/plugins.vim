@@ -10,15 +10,17 @@ Plug 'joeytwiddle/sexy_scroller.vim'     " Smooth scroller
 Plug 'preservim/tagbar'                  " Shows function definitions
 Plug 'vimlab/split-term.vim'             " Provides split terminal in Neovim
 Plug 'tpope/vim-surround'                " Surround manipulation
-Plug 'tmsvg/pear-tree'                   " Autoclosing brackets
-Plug 'mbbill/undotree'                   " Undo tree for vim
+Plug 'jiangmiao/auto-pairs'              " Autoclosing brackets
+Plug 'Chiel92/vim-autoformat'            " Formatter
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursor
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'} " Install fzf
 
 " Syntax, Langsupport, Format
 Plug 'gabrielelana/vim-markdown'         " Vim-Markdown support
 Plug 'fatih/vim-go'                      " Golang support
+Plug 'nathanaelkane/vim-indent-guides'   " Indent guides
 Plug 'octol/vim-cpp-enhanced-highlight'  " Enchanced C++ Highlighting
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " Vscode like completions
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
 
 " Themes, Comments, Indents

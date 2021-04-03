@@ -28,3 +28,5 @@ nnoremap <C-k> :m .-2<CR>==   " Move Line Up
 nnoremap <C-j> :m .+1<CR>==   " Move Line Down
 
 tnoremap <Esc> <C-\><C-n>     " Exit terminal mode
+nmap <F5> :TagbarToggle<CR>   " Toggle Tagbar (Function defs)
+nnoremap <C-\> :Commentary    " Comment line
