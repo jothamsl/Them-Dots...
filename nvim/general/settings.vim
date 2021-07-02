@@ -7,8 +7,8 @@
 
 " GLOBALS 
 let g:mapleader = "\<Space>" " Leader Key
-" let g:python_host_prog = 'home/jotham/miniconda3/bin/python3.8'
-" let g:python_host_prog = '/usr/bin/python2'
+let g:python_host_prog = '~/miniconda3/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
 
 syntax enable             " Enables syntax highlighting
 " set emoji                 " Enables emoji
@@ -36,7 +36,7 @@ set expandtab             " Coverts tabs to spaces
 set smartindent           " Makes indenting smart 
 set autoindent            " Good auto indent
 set number                " Line numbers 
-set laststatus=0          " Always display the status line 
+"set laststatus=0          " Always display the status line 
 "set cursorline            " Enable highlighting of the current line 
 "set showtabline=2         " Always show tabs
 set noshowmode            " We don't need to see things like -- INSERT -- anymore

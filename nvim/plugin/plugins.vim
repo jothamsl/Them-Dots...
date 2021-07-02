@@ -14,13 +14,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'} " Install fzf
 
 " Syntax, Langsupport, Format
 Plug 'gabrielelana/vim-markdown'         " Vim-Markdown support
-Plug 'nathanaelkane/vim-indent-guides'   " Indent guides
 Plug 'sheerun/vim-polyglot'              " Multi-language support
 Plug 'dense-analysis/ale'                " Linter
-Plug 'prabirshrestha/vim-lsp'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
 
@@ -30,14 +26,15 @@ Plug 'ryanoasis/vim-devicons'            " Icons
 
 " THEMES
 Plug 'flazz/vim-colorschemes'          " All Colorschemes
-Plug 'co1ncidence/mountaineer.vim'     " Mountaineer colorscheme
 Plug 'morhetz/gruvbox'                 " Gruvbox colorscheme
+Plug 'dylanaraps/wal.vim'              " Pywal theme
+
 
 call plug#end()
 
-let ayucolor="dark" " mirage, dark, light
+let ayucolor="light" " mirage, dark, light
 set background=dark " For gruvbox
-colorscheme spacegray
+colorscheme ayu
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
 
@@ -54,24 +51,10 @@ let g:autoformat_retab = 1
 let g:autoformat_remove_trailing_spaces = 1
 
 " ====================== Deoplete =======================
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 " maximum candidate window length
 " call deoplete#custom#source('_', 'max_menu_width', 80)
 
-" setting with vim-lsp
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(
-      \   lsp#utils#find_nearest_parent_file_directory(
-      \     lsp#utils#get_buffer_path(), ['.ccls', 'compile_commands.json', '.git/']))},
-      \ 'initialization_options': {
-      \   'highlight': { 'lsRanges' : v:true },
-      \   'cache': {'directory': stdpath('cache') . '/ccls' },
-      \ },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
+" ====================== YCM =============================
 
