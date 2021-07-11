@@ -34,7 +34,7 @@ call plug#end()
 
 let ayucolor="light" " mirage, dark, light
 set background=dark " For gruvbox
-colorscheme ayu
+colorscheme gruvbox
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
 
@@ -55,6 +55,3 @@ let g:autoformat_remove_trailing_spaces = 1
 " call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 " maximum candidate window length
 " call deoplete#custom#source('_', 'max_menu_width', 80)
-
-" ====================== YCM =============================
-

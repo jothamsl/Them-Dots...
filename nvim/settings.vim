@@ -1,3 +1,4 @@
+
 "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
 "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
@@ -59,4 +60,3 @@ let g:clang_format#code_style = "google"
 au! BufWritePost $MYVIMRC source %   " Auto souce when writing to init.vim alternatively you can run :source $MYVIMRC
 
 cmap w!! w !sudo tee %
-
