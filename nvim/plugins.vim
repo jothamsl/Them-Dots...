@@ -1,7 +1,7 @@
 call plug#begin("~/.config/nvim/plugged")
 
 " MAIN
-Plug 'puremourning/vimspector'           " Debugger
+"Plug 'puremourning/vimspector'           " Debugger
 Plug 'tpope/vim-commentary'              " Commenter
 Plug 'itchyny/lightline.vim'             " Status bar
 Plug 'junegunn/goyo.vim'                 " Minimal vim
@@ -16,9 +16,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'} " Install fzf
 Plug 'gabrielelana/vim-markdown'         " Vim-Markdown support
 Plug 'sheerun/vim-polyglot'              " Multi-language support
 Plug 'dense-analysis/ale'                " Linter
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'Chiel92/vim-autoformat'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 
 " Themes, Comments, Indents
 Plug 'preservim/nerdtree'                " File Browser
@@ -28,12 +31,13 @@ Plug 'ryanoasis/vim-devicons'            " Icons
 Plug 'flazz/vim-colorschemes'          " All Colorschemes
 Plug 'morhetz/gruvbox'                 " Gruvbox colorscheme
 Plug 'dylanaraps/wal.vim'              " Pywal theme
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
-let ayucolor="light" " mirage, dark, light
-set background=dark " For gruvbox
+let ayucolor="mirage" " mirage, dark, light
+set background=light " For gruvbox
 colorscheme gruvbox
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
@@ -55,3 +59,19 @@ let g:autoformat_remove_trailing_spaces = 1
 " call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 " maximum candidate window length
 " call deoplete#custom#source('_', 'max_menu_width', 80)
+
+" ====================== Glaive Format ======================
+" Autoformat
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
