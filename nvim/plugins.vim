@@ -2,12 +2,12 @@ call plug#begin("~/.config/nvim/plugged")
 
 " MAIN
 "Plug 'puremourning/vimspector'           " Debugger
-Plug 'tpope/vim-commentary'              " Commenter
 Plug 'itchyny/lightline.vim'             " Status bar
 Plug 'junegunn/goyo.vim'                 " Minimal vim
 Plug 'tpope/vim-fugitive'                " Git support
 Plug 'joeytwiddle/sexy_scroller.vim'     " Smooth scroller
 Plug 'preservim/tagbar'                  " Shows function definitions
+Plug 'tpope/vim-commentary'              " Commenter
 Plug 'jiangmiao/auto-pairs'              " Autoclosing brackets
 Plug 'mbbill/undotree'                   " Undo tree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'} " Install fzf
@@ -22,6 +22,11 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'github/copilot.vim'
 
 " Themes, Comments, Indents
 Plug 'preservim/nerdtree'                " File Browser
@@ -31,14 +36,15 @@ Plug 'ryanoasis/vim-devicons'            " Icons
 Plug 'flazz/vim-colorschemes'          " All Colorschemes
 Plug 'morhetz/gruvbox'                 " Gruvbox colorscheme
 Plug 'dylanaraps/wal.vim'              " Pywal theme
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'mangeshrex/uwu.vim'
+Plug 'pacokwon/onedarkhc.vim'
+
 
 call plug#end()
 
 let ayucolor="mirage" " mirage, dark, light
 set background=light " For gruvbox
-colorscheme gruvbox
+colorscheme onedarkhc
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
 
