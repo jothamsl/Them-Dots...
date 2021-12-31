@@ -17,7 +17,7 @@ Plug 'gabrielelana/vim-markdown'         " Vim-Markdown support
 Plug 'sheerun/vim-polyglot'              " Multi-language support
 Plug 'dense-analysis/ale'                " Linter
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
@@ -26,7 +26,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'github/copilot.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Themes, Comments, Indents
 Plug 'preservim/nerdtree'                " File Browser
@@ -44,7 +47,7 @@ call plug#end()
 
 let ayucolor="mirage" " mirage, dark, light
 set background=light " For gruvbox
-colorscheme onedarkhc
+colorscheme gruvbox
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
 
