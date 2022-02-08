@@ -1,24 +1,16 @@
 call plug#begin("~/.config/nvim/plugged")
 
 " MAIN
-"Plug 'puremourning/vimspector'           " Debugger
 Plug 'itchyny/lightline.vim'             " Status bar
-Plug 'junegunn/goyo.vim'                 " Minimal vim
-Plug 'tpope/vim-fugitive'                " Git support
 Plug 'joeytwiddle/sexy_scroller.vim'     " Smooth scroller
-Plug 'preservim/tagbar'                  " Shows function definitions
-Plug 'tpope/vim-commentary'              " Commenter
-Plug 'jiangmiao/auto-pairs'              " Autoclosing brackets
-Plug 'mbbill/undotree'                   " Undo tree
+"Plug 'preservim/tagbar'                  " Shows function definitions
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'} " Install fzf
+Plug 'jiangmiao/auto-pairs'              " Autoclosing brackets
 
 " Syntax, Langsupport, Format
 Plug 'gabrielelana/vim-markdown'         " Vim-Markdown support
 Plug 'sheerun/vim-polyglot'              " Multi-language support
 Plug 'dense-analysis/ale'                " Linter
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "  Browser Markdown Preview
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
@@ -30,9 +22,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'matze/vim-move'
 
 " Themes, Comments, Indents
-Plug 'preservim/nerdtree'                " File Browser
+"Plug 'preservim/nerdtree'                " File Browser
 Plug 'ryanoasis/vim-devicons'            " Icons
 
 " THEMES
@@ -41,13 +34,14 @@ Plug 'morhetz/gruvbox'                 " Gruvbox colorscheme
 Plug 'dylanaraps/wal.vim'              " Pywal theme
 Plug 'mangeshrex/uwu.vim'
 Plug 'pacokwon/onedarkhc.vim'
+Plug 'ajmwagar/vim-deus'
 
 
 call plug#end()
 
 let ayucolor="mirage" " mirage, dark, light
-set background=light " For gruvbox
-colorscheme gruvbox
+set background=dark" For gruvbox
+colorscheme deus
 
 " +++++++++++++++++++ GLOBAL CONFIG ++++++++++++++++++
 
